@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.clearfix::after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	a{
+		text-decoration: none;
+		color: #fff;
+	}
+	ul li{
+		list-style-type: none;
+	}
+	.header{
+		height: 52px;
+		width: 1920px;
+		margin: 0 auto;
+		background-color: #222222;
+		font-size: 16px;
+		color:#999999;
+		line-height: 52px;
+	}
+	.header_one{
+		width: 120px;
+		float: left;
+		text-align: center;
+	}
+	.nav li{
+		float: left;
+		list-style: none;
+	}
+	.nav .li_a{
+		width: 58px;
+		text-align: center;
+	}
+	.nav .li_b{
+		width: 70px;
+		text-align: center;
+	}
+	@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.eot');
+  src: url('bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+   		 url('bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff') format('woff'),
+   		 url('bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+   		 url('bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+.glyphicon {
+  position: relative;
+  top: 3px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale;
+}
+	.nav li:hover{
+		color: #fff;
+		background-color: #080808;
+	}
+	.nav ul li ul li{
+		width: 70px;
+	}
+	.nav ul li ul { position:absolute; display:none;}
+	.nav li:hover ul{ display:block; background-color: red;}
+	.header_from{
+		float: right;
+		width: 440px;
+		height: 52px;
+	}
+	.form-group{
+		float: left;
+	}
+	.form-inline input{
+		width: 176px;
+		height: 34px;
+		margin-right: 4px;
+		border-radius:5px;
+	}
+	.form-inline button{
+		width: 54px;
+		height: 34px;
+		border-radius:5px;
+	}
+	.content{
+		width: 1920px;
+		height: 890px; 
+		margin: 0 auto;
+	}
+	.c_l{
+		width: 320px;
+		height: 890px;
+		background-color: #dddddd;
+		float: left;
+		text-indent: 20px;
+		color: #428bca;
+	}
+	.c_l ul li{
+		list-style-type: none;
+		width: 320px;
+		line-height: 40px;
+	}
+	.c_l li:hover{
+		background-color: #428bca;
+		color: #fff;
+	}
+	.li_one{
+		margin-bottom: 10px;
+	}
+  .ul_one{
+  	margin-top: 20px;
+  	margin-bottom: 20px;
+  }
+  .c_r{
+  	width: 1580px;
+  	height: 890px;
+  	float: right;
+  	/* background-color: red; */
+  }
+  .cr_header{
+  	height: 66px;
+  	width: 1580px;
+  	margin-top: 10px;
+  }
+  .cr_header hr{
+  	width: 1560px;
+  	background-color: #eeeeee;
+  }
+  .cr_header p{
+  	font-size: 32px;
+  	color: #5a5a5a;
+  	line-height: 66px;
+  }
+  .caozuo{
+  	width: 1560px;
+  	font-size: 17px;
+  }
+  .caozuo ul{
+  	margin-top: 20px;
+  }
+  .caozuo ul li{
+  	list-style-type: none;
+  	float: left;
+  	line-height: 45px;
+  	width: 80px;
+  	text-align: center;
+  	border-radius: 5px;
+  	margin-left: 5px;
+  }
+ 	.caozuo_1{border: 1px solid #cccccc;}
+  .caozuo_2{background-color: #428bca; color: #fff;}
+  .caozuo_3{background-color: #5cb85c; color: #fff;}
+  .caozuo_4{background-color: #5bc0de; color: #fff;}
+  .caozuo_5{background-color: #f0ad4e; color: #fff;}
+  .caozuo_6{background-color: #d9534f; color: #fff;}
+  .c_r_content_1{
+  	width: 1560px;
+  	height: 300px;
+  	margin-top: 10px;
+  }
+  .c1_l{
+  	width: 765px;
+  	height: 285px;
+  	border: 1px solid #428bca;
+  	border-radius: 5px;
+  	float: left;
+  }
+  .dingbu{
+  	width: 765px;
+  	height: 40px;
+  	background-color: #428bca;
+  }
+  .dingbu p{
+		line-height: 40px;
+		color: #fff;
+  }
+  .c1_l ul{
+  	margin-top: 15px;
+  	margin-left: 15px;
+  }
+  .c1_l ul li{
+  	height: 50px;
+  	width: 732px;
+  	line-height: 50px;
+  	margin-bottom: 20px;
+  	border-radius: 5px;
+  }
+  .ts1{
+  	background-color: #dff0d8;
+  	color: #3c763d;
+  	border: 1px solid #d6e9c6;
+  }
+  .ts2{
+  	background-color: #f2dede;
+  	color: #a94442;
+  	border: 1px solid #ebccd1;
+  }
+  .ts3{
+  	background-color: #fcf8e3;
+  	color: #8a6d3b;
+  	border: 1px solid #faebcc;
+  }
+  .c1_r{
+  	width: 766px;
+  	height: 258px;
+  	float: right;
+  	border: 1px solid #428bca;
+  	border-radius: 5px;
+  	position: relative;
+  }
+  .c1_r ul{
+  	margin-top: 15px;
+  	margin-left: 15px;
+  }
+  .c1_r ul li{
+  	width: 733px;
+  	height: 40px;
+  	background-color: #d9edf7;
+  	color: #31708f;
+  	line-height: 40px;
+  	margin-bottom: 20px;
+  	border-radius: 10px;
+  }
+  .c1_r ul li span{
+  	font-size: 10px;
+  	text-align: center;
+  	color: #fff;
+  }
+  .sldw{
+		position: absolute;
+		width: 28px;
+		height: 18px;
+		background-color: #999999;
+		line-height: 18px;
+		border-radius: 5px;
+
+  }
+  .sldw_1{
+  	top: 65px;
+  	right: 30px;
+  }
+  .sldw_2{
+  	top: 125px;
+  	right: 30px;
+  }
+  .sldw_3{
+  	top: 185px;
+  	right: 30px;
+  }
+  .c_r_content_2{
+  	width: 1560px;
+  	height: 300px;
+  }
+  .dddb{
+  	margin-top: 15px;
+  }
+  .c1_l table{
+  	margin-left: 15px;
+  	width: 732px;
+  	line-height: 40px;
+  	color: #5a5a5a;
+  }
+  .c1_l table{
+  	border-bottom: 1px solid #5a5a5a;
+  }
+  .bg_1{
+  	width: 60px;
+  }
+  .bg_2{
+  	width: 305px;
+  }
+  .bg_3{
+  	width: 102px;
+  }
+  .bg_4{
+  	width: 130px;
+  }
+  .ckxq{
+  	width: 110px;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		background-color: #428bca;
+		margin-left: 15px;
+		margin-top: 10px;
+		border-radius: 5px;
+		color: #fff;
+  }
+  .sjgc{
+  	width: 132px;
+  	height: 32px;
+  	margin-left: 15px;
+  	margin-top: 34px;
+  	line-height: 32px;
+  	text-align: center;
+  	background-color: #428bca;
+  	border-radius: 5px;
+  	color: #fff;
+  }
+  .sjjd{
+  	width: 730px;
+  	height: 20px;
+  	margin-left: 15px;
+  	margin-top: 10px;
+  	background-color: #f5f5f5;
+  	border: 1px solid #e5e5e5;
+  	border-radius: 5px;
+  }
+  .sjjd_xs{
+  	width: 440px;
+  	height: 20px;
+  	background-color: #428bca;
+  	border-radius: 5px;
+  }
+  .jjgc{
+		width: 96px;
+  	height: 32px;
+  	margin-left: 15px;
+  	margin-top: 20px;
+  	line-height: 32px;
+  	text-align: center;
+  	background-color: #d9534f;
+  	border-radius: 5px;
+  	color: #fff;
+  }
+  .jjgc_xs{
+  	width: 586px;
+  	height: 20px;
+  	background-color: #d9534f;
+  	border-radius: 5px;
+  }
+</style>
+<body>
+	<div class="header clearfix">
+		<div class="header_one">某管理系统</div>
+		<div class="nav">
+			<ul>
+				<li class="li_a">首页</li>
+				<li class="li_b">功能<span class="glyphicon glyphicon-triangle-bottom"></span>
+					<ul>
+						<li>功能1</li>
+					</ul>
+				</li>
+				<li class="li_b">帮助</li>
+			</ul>
+		</div>
+		<div class="header_from">
+					<form class="form-inline">
+		  <div class="form-group">
+		    <label for="exampleInputName2"></label>
+		    <input type="text" class="form-control" id="exampleInputName2" placeholder="用户名...">
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputPassword"></label>
+		    <input type="password" class="form-control" id="exampleInputPassword" placeholder="密码...">
+		  </div>
+		  <button type="submit" class="btn btn-default">登陆</button>
+		</form>
+		</div>
+	</div>
+	<div class="content clearfix">
+		<div class="c_l">
+			<ul class="ul_one">
+				<li class="li_one">首页</li>
+				<li>信息建立</li>
+				<li>信息查询</li>
+				<li>信息管理</li>
+			</ul>
+			<ul class="ul_two">
+				<li>设置</li>
+				<li>帮助</li>
+			</ul>
+		</div>
+		<div class="c_r">
+			<div class="cr_header">
+				<p>管理控制台</p>
+				<hr>
+			</div>
+			<div class="caozuo clearfix">
+				<ul>
+					<li class="caozuo_1">操作1</li>
+					<li class="caozuo_2">操作2</li>
+					<li class="caozuo_3">操作3</li>
+					<li class="caozuo_4">操作4</li>
+					<li class="caozuo_5">操作5</li>
+					<li class="caozuo_6">操作6</li>
+				</ul>
+			</div>
+			<div class="c_r_content_1 clearfix">
+				<div class="c1_l">
+					<div class="dingbu">
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;最新提醒</p>
+					</div>
+					<ul>
+						<li class="ts1">&nbsp;&nbsp;提示 您的订单 (2014001) 已经审批通过！</li>
+						<li class="ts2">&nbsp;&nbsp;提示 您的订单 (2014002) 被打回！</li>
+						<li class="ts3">&nbsp;&nbsp;提示 您的订单 (2013001) 客户付款延迟！</li>
+					</ul>
+				</div>
+				<div class="c1_r">
+					<div class="dingbu">
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;最新任务</p>
+					</div>
+					<ul>
+						<li class="rw1">&nbsp;&nbsp;订单审批<span class="sldw_1 sldw">42</span></li>
+						<li class="rw2">&nbsp;&nbsp;收款确认<span class="sldw_2 sldw">20</span></li>
+						<li class="rw3">&nbsp;&nbsp;付款确认<span class="sldw_3 sldw">10</span></li>
+					</ul>
+				</div>
+			</div>
+			<div class="c_r_content_2">
+				<div class="c1_l">
+					<div class="dingbu">
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;最新定单</p>
+					</div>
+					<table class="dddb">
+						<tr>
+							<td class="bg_1"><b>#</b></td>
+							<td class="bg_2"><b>产品</b></td>
+							<td class="bg_3"><b>数量</b></td>
+							<td class="bg_4"><b>总金额</b></td>
+							<td class="bg_5"><b>业务员</b></td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td class="bg_1">1</td>
+							<td class="bg_2">Apple Macbook air</td>
+							<td class="bg_3">10</td>
+							<td class="bg_4">80000</td>
+							<td class="bg_5">王小贱</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td class="bg_1">2</td>
+							<td class="bg_2">Apple iPad air</td>
+							<td class="bg_3">20</td>
+							<td class="bg_4">65000</td>
+							<td class="bg_5">尹开花</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td class="bg_1">3</td>
+							<td class="bg_2">Apple Macbook pro</td>
+							<td class="bg_3">5</td>
+							<td class="bg_4">50000</td>
+							<td class="bg_5">刘老根</td>
+						</tr>
+					</table>
+					<div class="ckxq"><a href="">查看详情&raquo;</a></div>
+				</div>
+				<div class="c1_r">
+					<div class="dingbu">
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;工程进度</p>
+					</div>
+					<div class="sjgc">水井挖掘工程</div>
+					<div class="sjjd">
+						<div class="sjjd_xs"></div>
+					</div>
+					<div class="jjgc">基建工程</div>
+					<div class="sjjd">
+						<div class="jjgc_xs"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
